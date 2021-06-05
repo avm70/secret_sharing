@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  secret_sharing:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: "secret_sharing:latest"
+    volumes:
+      - secrets-volume:/app/build/secrets
+      - users-volume:/app/build/db
+    ports:
+      - "6000:6000"
+volumes:
+    secrets-volume:
+    users-volume:
